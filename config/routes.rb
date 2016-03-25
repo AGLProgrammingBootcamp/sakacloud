@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   root 'home#graph'
+  # root  'home#top'
+  # get '/new_user' => '#new_user'
 
   resources :users
   get 'user/list' => 'users#index'
