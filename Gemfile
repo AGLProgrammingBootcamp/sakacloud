@@ -46,6 +46,7 @@ group :development, :test do
   gem 'spring'
 end
 
+gem 'lazy_high_charts'
 
 gem 'therubyracer' # javascript runtime。lessをコンパイルするために必要
 gem 'less-rails' # Railsでlessを使えるようにする。Bootstrapがlessで書かれているため
