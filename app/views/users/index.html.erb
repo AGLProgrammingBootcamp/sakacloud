@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>ユーザ一覧</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>名前</th>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.name %></td>
+        <!--<td><%= user.email %></td>-->
+        <!--<td><%= user.password %></td>-->
+        <td><%= link_to '詳細', edit_user_path(user) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to '新規登録', new_user_path %>
