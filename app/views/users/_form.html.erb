@@ -1,9 +1,9 @@
 <%= form_for(@user) do |f| %>
-  <% if @note.errors.any? %>
+  <% if @user.errors.any? %>
     <div id="error_explanation" class="alert alert-danger">
-      <h2><%= @note.errors.count %>件のエラーがあります。</h2>
+      <h2><%= @user.errors.count %>件のエラーがあります。</h2>
       <ul>
-        <% @note.errors.full_messages.each do |message| %>
+        <% @user.errors.full_messages.each do |message| %>
           <li><%= message %></li>
         <% end %>
       </ul>
@@ -24,6 +24,6 @@
     <%= f.text_field :password %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "登録する"%>
   </div>
 <% end %>
