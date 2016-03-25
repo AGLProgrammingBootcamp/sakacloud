@@ -1,0 +1,29 @@
+<%= form_for(@user) do |f| %>
+  <% if @note.errors.any? %>
+    <div id="error_explanation" class="alert alert-danger">
+      <h2><%= @note.errors.count %>件のエラーがあります。</h2>
+      <ul>
+        <% @note.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+  <div class="field">
+    <%= f.label "名前" %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label "e-mailアドレス" %><br>
+    <%= f.text_field :email %>
+  </div>
+  <div class="field">
+    <%= f.label "パスワード" %><br>
+    <%= f.text_field :password %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
