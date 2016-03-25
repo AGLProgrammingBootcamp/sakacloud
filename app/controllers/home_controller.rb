@@ -22,5 +22,4 @@ class HomeController < ApplicationController
   	        layout: 'vertical')
       end
   end
-  
 end
