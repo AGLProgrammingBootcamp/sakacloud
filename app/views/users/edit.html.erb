@@ -1,0 +1,5 @@
+<h1>ユーザ情報編集</h1>
+
+<%= render 'form' %>
+<%= link_to '消去', @user, method: :delete, data: { confirm: '消去しますか?' } %>
+<%= link_to '戻る', users_path %>
