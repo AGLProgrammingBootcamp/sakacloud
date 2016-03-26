@@ -10,7 +10,7 @@ class SakesController < ApplicationController
   # GET /sakes/1
   # GET /sakes/1.json
   def show
-    
+    @reviews = @sake.reviews
   end
   
   # GET /sakes/new

@@ -10,18 +10,13 @@
     <h3 class="user-info"><%= @user.email %></h3>
   </section>
 
+</aside>
+<ul class="reviews">
+  <% @reviews.each do |review| %>
+    <% @sake = Sake.find(review.sake_id) %>
+    <li><%= link_to @sake.name, review %></li>
+  <% end %>
+</ul>
   <section>
     <small><%= link_to 'プロフィールを編集', edit_user_path(@user) %></small>
   </section>
-
-</aside>
-<!--評価実装時用-->
-<!--<ul class="sakes">-->
-<!--    <% if @reviews %>-->
-<!--      <% @reviews.each do |review| %>-->
-<!--        <li><%= link_to review.sake_title, review %></li>-->
-<!--      <% end %>-->
-<!--    <% end %>-->
-<!--</ul>-->
-<!--<%= link_to '戻る', user_list_path %>-->
-

@@ -10,16 +10,13 @@
   <%= @sake.place %>
 </p>
 <p>
- </p>
-   <strong>感想</strong></strong>
+  <strong>感想</strong></strong>
 </p>
 <ul class="reviews">
+  <% @reviews = Raview.find(:id) %>
   <% @reviews.each do |review| %>
-    <li><%= review.comment %></li>
+    <li><%= review %></li>
   <% end %>
 </ul>
 
-
-<!--<%= link_to '編集', edit_sake_path(@sake) %>-->
-<!--<%= link_to '削除', @sake, method: :delete, data: { confirm: '本当に削除してもいいですか?' } %>-->
 <%= link_to '一覧へ戻る', sakes_path %>
