@@ -1,19 +1,28 @@
 <p id="notice"><%= notice %></p>
+<aside class="sidebar">
+  <section>
+    <span class="label">ユーザー</span>
+    <h3 class="user-info"><%= @user.name %></h3>
+  </section>
+  
+  <section>
+    <span class="label">メールアドレス</span>
+    <h3 class="user-info"><%= @user.email %></h3>
+  </section>
 
-<p>
-  <strong>Name:</strong>
-  <%= @user.name %>
-</p>
+  <section>
+    <small><%= link_to 'プロフィールを編集', edit_user_path(@user) %></small>
+  </section>
 
-<p>
-  <strong>Email:</strong>
-  <%= @user.email %>
-</p>
-
-<p>
-  <strong>Password:</strong>
-  <%= @user.password %>
-</p>
-
-<%= link_to '編集', edit_users_path(@user) %> |
+</aside>
+<!--評価実装時用-->
+<!--<ul class="sakes">-->
+<!--    <% if @evaluations %>-->
+<!--      <% @evaluations.each do |evaluation| %>-->
+<!--        <li><%= link_to evaluation.sake_title, evaluation %></li>-->
+<!--      <% end %>-->
+<!--    <% end %>-->
+<!--</ul>-->
+<%= link_to '編集', edit_user_path(@user) %> |
 <!--<%= link_to '戻る', user_list_path %>-->
+
