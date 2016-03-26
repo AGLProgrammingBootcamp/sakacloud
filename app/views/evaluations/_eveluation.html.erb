@@ -1,0 +1,11 @@
+<li>
+  <span class="user-id">
+    <%= evaluation.user.id %>
+  </span>
+  <span class="sake-id">
+    <%= evaluation.sake.id %>
+  </span>
+  <span class="comment">
+    <%= link_to evaluation.sake_id, evaluation_path(evaluation.id) %>
+  </span>
+</li>

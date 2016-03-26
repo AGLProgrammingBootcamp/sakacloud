@@ -1,0 +1,22 @@
+<p id="notice"><%= notice %></p>
+
+<h1>投稿の一覧</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>日本酒名</th>
+      <th>コメント</th>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @reviews.each do |review| %>
+      <tr>
+        <td></td>
+        <td><%= review.comment %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

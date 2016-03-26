@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>日本酒:</strong>
+  <%= @evaluation.sake.name %>
+</p>
+
+<p>
+  <strong>ユーザ:</strong>
+  <%= @evaluation.user.name %>
+</p>
+
+<p>
+  <strong>コメント:</strong>
+  <%= @evaluation.comment %>
+</p>
+
+<%= link_to "編集", edit_note_path(@note.id), class: "btn edit-btn" %>
+<%= link_to "削除", note_path(@note.id), method: "delete", class: "btn destroy-btn", "data-confirm" => "本当に削除しますか？" %>

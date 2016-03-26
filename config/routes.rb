@@ -1,11 +1,10 @@
 Rails.application.routes.draw do
-  resources :sakes
+  resources :reviews
   root  'home#top'
-  # get '/new_user' => '#new_user'
-
+  resources :evaluations
+  resources :sakes
   resources :users
-  get 'user/list' => 'users#index'
-  
+  get 'user_list' => 'user#index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
