@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>日本酒一覧</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>名前</th>
+      <th>産地</th>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @sakes.each do |sake| %>
+      <tr>
+        <td><%= sake.name %></td>
+        <td><%= sake.place %></td>
+        <td><%= link_to '詳細', sake %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to '日本酒新規登録', new_sake_path %>

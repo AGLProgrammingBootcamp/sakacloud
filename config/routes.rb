@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :sakes
   root  'home#top'
   # get '/new_user' => '#new_user'
 
