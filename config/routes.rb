@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
+  resources :evaluations
   root  'home#top'
   # get '/new_user' => '#new_user'
 
   resources :users
+  resources :evaluations
   get 'user/list' => 'users#index'
   
   # The priority is based upon order of creation: first created -> highest priority.
