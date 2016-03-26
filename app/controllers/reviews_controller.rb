@@ -10,8 +10,9 @@ class ReviewsController < ApplicationController
   # GET /reviews/1
   # GET /reviews/1.json
   def show
-    # @user = User.find(params[:user_id])
-    # @sake = Sake.find(params[:sake_id])
+    @review = Review.find(params[:id])
+    @user = @review.user
+    @sake = @review.sake
   end
 
   # GET /reviews/new
@@ -30,7 +31,7 @@ class ReviewsController < ApplicationController
 
     respond_to do |format|
       if @review.save
-        format.html { redirect_to @review, notice: 'Review was successfully created.' }
+        format.html { redirect_to @review, notice: '投稿できました.' }
         format.json { render :show, status: :created, location: @review }
       else
         format.html { render :new }
@@ -44,7 +45,7 @@ class ReviewsController < ApplicationController
   def update
     respond_to do |format|
       if @review.update(review_params)
-        format.html { redirect_to @review, notice: 'Review was successfully updated.' }
+        format.html { redirect_to @review, notice: '修正しました' }
         format.json { render :show, status: :ok, location: @review }
       else
         format.html { render :edit }
@@ -58,7 +59,7 @@ class ReviewsController < ApplicationController
   def destroy
     @review.destroy
     respond_to do |format|
-      format.html { redirect_to reviews_url, notice: 'Review was successfully destroyed.' }
+      format.html { redirect_to reviews_url, notice: '消去しました.' }
       format.json { head :no_content }
     end
   end
