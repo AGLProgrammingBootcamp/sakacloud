@@ -1,5 +1,5 @@
 class Sake < ActiveRecord::Base
-  has_many :review
+  has_many :reviews
   def set_image(file)
     if !file.nil?
       file_name = file.original_filename
