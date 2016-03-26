@@ -1,5 +1,6 @@
 class Sake < ActiveRecord::Base
   has_many :reviews
+  validates :name, presence: true,uniqueness: true
   def set_image(file)
     if !file.nil?
       file_name = file.original_filename

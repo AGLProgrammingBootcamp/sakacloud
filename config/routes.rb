@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
   resources :reviews
   root  'home#top'
-  resources :evaluations
   resources :sakes
   resources :users
   get 'user_list' => 'user#index'
