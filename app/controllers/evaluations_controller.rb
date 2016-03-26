@@ -28,9 +28,11 @@ class EvaluationsController < ApplicationController
 
     respond_to do |format|
       if @evaluation.save
-        redirect_to @evaluation, notice: "投稿が保存されました"
+        format.html { redirect_to @Evaluation, notice: '登録完了しました' }
+        format.json { render :show, status: :created, location: @evaluation }
       else
-        render :new
+        format.html { render :new }
+        format.json { render json: @sake.errors, status: :unprocessable_entity }
       end
     end
   end

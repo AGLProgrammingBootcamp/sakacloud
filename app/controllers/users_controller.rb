@@ -30,7 +30,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
 
     if @user.save
-      redirect_to user_list_path, notice: "ユーザが保存されました"
+      redirect_to users_path, notice: "ユーザが保存されました"
     else
       render :new
     end

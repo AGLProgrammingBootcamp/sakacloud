@@ -1,9 +1,9 @@
-<%= form_for(@evaluation) do |f| %>
-  <% if @evaluation.errors.any? %>
+<%= form_for(@review) do |f| %>
+  <% if @review.errors.any? %>
     <div id="error_explanation" class="alert alert-danger">
-      <h2><%= @evaluation.errors.count %>件のエラーがあります。</h2>
+      <h2><%= @review.errors.count %>件のエラーがあります。</h2>
       <ul>
-        <% @evaluation.errors.full_messages.each do |message| %>
+        <% @review.errors.full_messages.each do |message| %>
           <li><%= message %></li>
         <% end %>
       </ul>

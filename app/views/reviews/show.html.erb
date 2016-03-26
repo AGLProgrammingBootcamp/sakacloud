@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>日本酒:</strong>
+</p>
+  <strong>名前:</strong>
+</p>
+
+<p>
+  <strong>コメント:</strong>
+  <%= @review.comment %>
+</p>
+
+<%= link_to "編集", edit_review_path(@review.id), class: "btn edit-btn" %>
+<%= link_to "削除", review_path(@review.id), method: "delete", class: "btn destroy-btn", "data-confirm" => "本当に削除しますか？" %>
