@@ -13,8 +13,9 @@
 
   <tbody>
     <% @reviews.each do |review| %>
+      <% @sake = Sake.find(review.sake_id) %>
       <tr>
-        <td></td>
+        <td><%= @sake.name%></td>
         <td><%= review.comment %></td>
       </tr>
     <% end %>
