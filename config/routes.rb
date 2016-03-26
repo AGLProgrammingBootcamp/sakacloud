@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  get 'graph/create_graph'
-
   resources :sakes
   root  'home#top'
   # get '/new_user' => '#new_user'
