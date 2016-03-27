@@ -42,7 +42,7 @@ class UsersController < ApplicationController
               min:-2,max:2
               )#タイトル
         f.yAxis(title: {text: "味"} ,min:-2,max:2) #各項目の最大値やら
-        f.series(name:'Aさん',data: aData)
+        f.series(name:'',data: aData)
         f.legend(
               layout: 'vertical',
               align: 'left',

@@ -62,7 +62,7 @@ class ReviewsController < ApplicationController
     @graph = LazyHighCharts::HighChart.new('graph') do |f|
       f.chart(scatter: true,zoomType: 'xy') #グラフの種類
       f.pane(size:'10%')                  #グラフサイズの比
-      f.title(text: 'Aさんの好み')   
+      f.title(text: '')   
       f.xAxis(title: {
                 enabled: true,
                 text: '香り'
@@ -73,7 +73,7 @@ class ReviewsController < ApplicationController
             min:-2,max:2
             )#タイトル
       f.yAxis(title: {text: "味"} ,min:-2,max:2) #各項目の最大値やら
-      f.series(name:'Aさん',data: aData)
+      f.series(name:'',data: aData)
       f.legend(
             layout: 'vertical',
             align: 'left',
