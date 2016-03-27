@@ -1,6 +1,6 @@
 class ReviewsController < ApplicationController
   before_action :set_review, only: [:show, :edit, :update, :destroy]
-
+  
   # GET /reviews
   # GET /reviews.json
   def index
@@ -10,9 +10,80 @@ class ReviewsController < ApplicationController
   # GET /reviews/1
   # GET /reviews/1.json
   def show
-    # @review = Review.find(params[:id])
     @user = @review.user
     @sake = @review.sake
+     aData = [[@review.fruity.to_i, @review.taste.to_i]]
+    @graph = LazyHighCharts::HighChart.new('graph') do |f|
+      f.chart(scatter: true,zoomType: 'xy') #グラフの種類
+      f.pane(size:'10%')                  #グラフサイズの比
+      f.title(text: 'あなたの評価')   
+      f.xAxis(title: {
+                enabled: true,
+                text: '香り'
+            },
+            startOnTick: true,
+            endOnTick: true,
+            showLastLabel: true,
+            min:-2,max:2
+            )#タイトル
+      f.yAxis(title: {text: "味"} ,min:-2,max:2) #各項目の最大値やら
+      f.series(name:'Aさん',data: aData)
+      f.legend(
+            layout: 'vertical',
+            align: 'left',
+            verticalAlign: 'top',
+            x: 50,
+            y: 50,
+            floating: true,
+            borderWidth: 1
+        )
+  	end
+  end
+  
+  def create_graph
+    
+    @reviews = Review.all # すべての日本酒評価の情報が配列
+    sum_fruity = 0
+    sum_taste = 0
+    average_fruity = 0
+    average_taste = 0
+    i = 0
+
+    @reviews.each do |review|
+      sum_fruity += review[:fruity].to_i
+      sum_taste += review[:taste].to_i
+      i += 1
+    end
+    
+    average_fruity = sum_fruity/i
+    average_taste = sum_taste/i
+    aData = [[average_fruity, average_taste]]
+    
+    @graph = LazyHighCharts::HighChart.new('graph') do |f|
+      f.chart(scatter: true,zoomType: 'xy') #グラフの種類
+      f.pane(size:'10%')                  #グラフサイズの比
+      f.title(text: 'Aさんの好み')   
+      f.xAxis(title: {
+                enabled: true,
+                text: '香り'
+            },
+            startOnTick: true,
+            endOnTick: true,
+            showLastLabel: true,
+            min:-2,max:2
+            )#タイトル
+      f.yAxis(title: {text: "味"} ,min:-2,max:2) #各項目の最大値やら
+      f.series(name:'Aさん',data: aData)
+      f.legend(
+            layout: 'vertical',
+            align: 'left',
+            verticalAlign: 'top',
+            x: 50,
+            y: 50,
+            floating: true,
+            borderWidth: 1
+        )
+  	end
   end
 
   # GET /reviews/new
@@ -72,6 +143,6 @@ class ReviewsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def review_params
-      params.require(:review).permit(:user_id, :sake_id, :comment)
+      params.require(:review).permit(:user_id, :sake_id, :comment,:fruity,:taste)
     end
 end

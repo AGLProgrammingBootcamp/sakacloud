@@ -11,8 +11,52 @@ class SakesController < ApplicationController
   # GET /sakes/1.json
   def show
     @reviews = @sake.reviews
+    sum_fruity = 0
+    sum_taste = 0
+    average_fruity = 0
+    average_taste = 0
+    i = 0
+
+    @reviews.each do |review|
+      sum_fruity += review[:fruity].to_i
+      sum_taste += review[:taste].to_i
+      i += 1
+    end
+    if i != 0 then
+      average_fruity = sum_fruity/i
+      average_taste = sum_taste/i
+      aData = [[average_fruity, average_taste]]
+    
+      @graph = LazyHighCharts::HighChart.new('graph') do |f|
+        f.chart(scatter: true,zoomType: 'xy') #グラフの種類
+        f.pane(size:'10%')                  #グラフサイズの比
+        f.title(text: '平均値')   
+        f.xAxis(title: {
+                  enabled: true,
+                  text: '香り'
+              },
+              startOnTick: true,
+              endOnTick: true,
+              showLastLabel: true,
+              min:-2,max:2
+              )#タイトル
+        f.yAxis(title: {text: "味"} ,min:-2,max:2) #各項目の最大値やら
+        f.series(name:'Aさん',data: aData)
+        f.legend(
+              layout: 'vertical',
+              align: 'left',
+              verticalAlign: 'top',
+              x: 50,
+              y: 50,
+              floating: true,
+              borderWidth: 1
+          )
+        @graph_comp = 1
+      end
+  	 else
+  	  @graph_comp = 0
+  	end
   end
-  
   # GET /sakes/new
   def new
     @sake = Sake.new
