@@ -41,4 +41,6 @@ Rails.application.configure do
   config.serve_static_assets = true
   config.assets.js_compressor = :uglifier
   config.assets.css_compressor = :scss
+  config.assets.compile = true
+  config.assets.digest = true
 end
