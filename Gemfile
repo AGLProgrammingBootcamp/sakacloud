@@ -9,7 +9,7 @@ gem 'sqlite3', groups: %w(test development), require: false
 gem 'pg', groups: %w(production), require: false
 
 # Use SCSS for stylesheets
-gem 'sass-rails', '~> 5.0.0.beta1'
+gem 'sass-rails', '~> 5.0.0'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .js.coffee assets and views
