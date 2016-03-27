@@ -12,6 +12,9 @@
   <strong>コメント:</strong>
   <%= @review.comment %>
 </p>
+<p>
+<%= high_chart("radar", @graph) %>
+</p>
 <%= link_to "戻る", reviews_path, class: "btn index-btn" %>
 <!--<%= link_to "編集", edit_review_path(@review.id), class: "btn edit-btn" %>-->
 <!--<%= link_to "削除", review_path(@review.id), method: "delete", class: "btn destroy-btn", "data-confirm" => "本当に削除しますか？" %>-->

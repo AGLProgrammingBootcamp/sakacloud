@@ -17,6 +17,12 @@
     <li><%= link_to @sake.name, review %></li>
   <% end %>
 </ul>
+<% if @graph_comp == 1%>
+<p>
+<%= high_chart("radar", @graph) %>
+</p>
+<%end%>
+
   <section>
     <small><%= link_to 'プロフィールを編集', edit_user_path(@user) %></small>
   </section>
