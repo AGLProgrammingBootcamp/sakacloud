@@ -5,6 +5,8 @@ Rails.application.routes.draw do
 
   resources :users
   get 'user/list' => 'users#index'
+
+  get 'graph'=> 'graph#create_graph'
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
