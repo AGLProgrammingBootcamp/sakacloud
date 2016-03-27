@@ -20,11 +20,11 @@
   </div>
   <div class="field">
     <%= f.label "香り" %><br>
-    <%= f.select :fruity, options_for_select([1, 2, 3, 4, 5]), {class: "form-control user-id-field"} %>
+    <%= f.select :fruity, options_for_select([-2, -1, 0, 1, 2]), {class: "form-control user-id-field"} %>
   </div>
   <div class="field">
     <%= f.label "味" %><br>
-    <%= f.select :taste, options_for_select([1, 2, 3, 4, 5]), {class: "form-control user-id-field"} %>
+    <%= f.select :taste, options_for_select([-2, -1, 0, 1, 2]), {class: "form-control user-id-field"} %>
   </div>
   <div class="field">
     <%= f.label "コメント" %><br>
